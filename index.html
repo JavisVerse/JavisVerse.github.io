@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>JavisVerse: A Universe of Joint Audio-Video Intelligence Symphony</title>
+<meta name="description" content="JavisVerse · A Universe of Joint Audio-Video Intelligence Symphony" />
+
+<style>
+    :root {
+        --bg-gradient-start: #0a0b10;
+        --bg-gradient-end: #1a1c2e;
+        --card-bg: rgba(255,255,255,0.03);
+        --card-border: rgba(255,255,255,0.08);
+        --text-main: #ffffff;
+        --text-dim: #a4a8c9;
+        --accent: #6b6bff;
+        --accent-soft: rgba(107,107,255,0.12);
+        --radius-xl: 1.25rem;
+        --radius-lg: 0.75rem;
+        --radius-md: 0.5rem;
+        --max-page-width: 1280px;
+        --transition-fast: 0.18s ease;
+        --font-stack: -apple-system,BlinkMacSystemFont,"Inter","SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+        margin: 0;
+        background: radial-gradient(circle at 20% 20%, rgba(107,107,255,0.16) 0%, rgba(10,11,16,0) 60%),
+                    radial-gradient(circle at 80% 10%, rgba(0,190,255,0.12) 0%, rgba(10,11,16,0) 60%),
+                    linear-gradient(160deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 80%);
+        color: var(--text-main);
+        font-family: var(--font-stack);
+        line-height: 1.5;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header.hero {
+        width: 100%;
+        max-width: var(--max-page-width);
+        margin: 3rem auto 2rem;
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    .tagline-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        background: var(--accent-soft);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        font-size: .75rem;
+        line-height: 1.2;
+        font-weight: 500;
+        padding: .4rem .75rem;
+        border-radius: var(--radius-lg);
+        margin-bottom: 1rem;
+        letter-spacing: -.02em;
+    }
+
+    .tagline-chip span.spark {
+        display: inline-block;
+        width: .5rem;
+        height: .5rem;
+        background: var(--accent);
+        border-radius: 999px;
+        box-shadow: 0 0 12px var(--accent);
+    }
+
+    h1.title {
+        font-size: clamp(1.8rem, 1vw + 1.4rem, 2.2rem);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        color: var(--text-main);
+        margin: 0 0 1rem;
+        line-height: 1.15;
+    }
+
+    .subtitle {
+        max-width: 820px;
+        margin: 0 auto;
+        font-size: 0.95rem;
+        font-weight: 400;
+        color: var(--text-dim);
+        line-height: 1.5;
+        letter-spacing: -0.02em;
+    }
+
+    .projects-section {
+        width: 100%;
+        max-width: var(--max-page-width);
+        margin: 2rem auto 4rem;
+        padding: 0 1.5rem 3rem;
+        flex: 1 0 auto;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(min(340px,100%),1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .logo-header {
+        display: inline-flex;
+        align-items: center;
+        width: 96px;
+        height: 96px;
+        border-radius: var(--radius-md);
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .card {
+        position: relative;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius-xl);
+        padding: 1.25rem 1.25rem 1rem;
+        display: flex;
+        flex-direction: column;
+        min-height: 260px;
+        overflow: hidden;
+        transition: box-shadow var(--transition-fast), border var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.07) 0%, rgba(0,0,0,0) 70%);
+        pointer-events: none;
+    }
+
+    .card:hover {
+        border: 1px solid rgba(255,255,255,0.18);
+        box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 60px rgba(107,107,255,0.25);
+        transform: translateY(-2px);
+    }
+
+    .card-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .logo-wrap {
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-md);
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+    }
+
+    .logo-wrap img {
+        max-width: 95%;
+        max-height: 95%;
+        object-fit: contain;
+    }
+
+    .title-block {
+        min-width: 0;
+    }
+
+    .proj-name {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: .5rem;
+        margin: 0 0 .4rem;
+        line-height: 1.2;
+    }
+
+    .proj-tag {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.16);
+        font-size: .65rem;
+        line-height: 1.2;
+        font-weight: 500;
+        padding: .25rem .5rem;
+        border-radius: var(--radius-md);
+        color: var(--text-main);
+        white-space: nowrap;
+        letter-spacing: -0.03em;
+    }
+
+    .proj-headline {
+        font-size: .8rem;
+        font-weight: 400;
+        color: var(--text-dim);
+        line-height: 1.4;
+        letter-spacing: -0.02em;
+        margin: 0;
+    }
+
+    .card-body {
+        margin-top: 1rem;
+        font-size: .85rem;
+        line-height: 1.5;
+        color: var(--text-main);
+        letter-spacing: -0.02em;
+        flex: 1 0 auto;
+    }
+
+    .card-body p {
+        margin: 0 0 .75rem;
+        color: var(--text-dim);
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .bullet-line {
+        display: flex;
+        align-items: flex-start;
+        gap: .5rem;
+        margin-bottom: .5rem;
+        line-height: 1.4;
+        color: var(--text-main);
+        font-size: .8rem;
+    }
+
+    .bullet-icon {
+        flex-shrink: 0;
+        width: .5rem;
+        height: .5rem;
+        border-radius: 4px;
+        background: var(--accent);
+        box-shadow: 0 0 8px var(--accent);
+        margin-top: .4rem;
+    }
+
+    .card-footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem .75rem;
+        margin-top: 1rem;
+    }
+
+    .btn-link {
+        appearance: none;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.14);
+        border-radius: var(--radius-md);
+        padding: .5rem .75rem;
+        font-size: .75rem;
+        font-weight: 500;
+        line-height: 1.2;
+        color: var(--text-main);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        transition: background var(--transition-fast), border var(--transition-fast), box-shadow var(--transition-fast);
+        cursor: pointer;
+    }
+
+    .btn-link:hover {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.4);
+        box-shadow: 0 0 20px rgba(255,255,255,0.3), 0 0 30px rgba(107,107,255,0.4);
+    }
+
+    .btn-link span.icon {
+        font-size: .8rem;
+        line-height: 1;
+        opacity: .8;
+    }
+
+    footer.site-footer {
+        width: 100%;
+        max-width: var(--max-page-width);
+        margin: auto auto 2rem;
+        padding: 0 1.5rem;
+        text-align: center;
+        color: var(--text-dim);
+        font-size: .7rem;
+        line-height: 1.4;
+        letter-spacing: -0.02em;
+    }
+
+    .footer-line {
+        opacity: .4;
+        border: 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        max-width: 300px;
+        margin: 2rem auto 1rem;
+    }
+
+    @media (max-width:480px){
+        .proj-headline {
+            font-size: .75rem;
+        }
+        .card-body{
+            font-size: .8rem;
+        }
+        .bullet-line{
+            font-size: .75rem;
+        }
+        .btn-link{
+            font-size: .7rem;
+        }
+    }
+</style>
+</head>
+
+<link rel="icon" href="./static/images/logo/JavisVerse.png">
+
+<body>
+
+<header class="hero">
+
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; ">   
+        <div class="logo-header">
+            <img src="static/images/logo/JavisVerse.png" alt="JavisVerse logo"
+                style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+
+        <!-- <div class="tagline-chip">
+            <span class="spark"></span>
+            <span>JavisVerse</span>
+            <span class="spark"></span>
+        </div> -->
+    </div>
+
+    <h1 class="title">
+        <!-- <img src="./static/images/logo/JavisVerse.png" width="80" height="80" style="margin-right: 10px;"> -->
+        JavisVerse: A Universe of Joint Audio-Video Intelligence Symphony
+    </h1>
+
+    <p class="subtitle">
+        A unified family of audio-video models for multimodal generation and understanding, including:<br/>
+        text-conditional joint audio-video synthesis (JavisDiT) and unified audiovisual comprehension and generation (JavisGPT).
+    </p>
+</header>
+
+
+<section class="projects-section">
+    <div class="grid">
+
+        <!-- JavisDiT Card -->
+        <article class="card">
+        <a class="card-link" href="https://javisverse.github.io/javisdit/">
+            <div class="card-header">
+                <div class="logo-wrap">
+                    <img src="static/images/logo/JavisDiT_cropped.png" alt="JavisDiT logo" />
+                </div>
+                <div class="title-block">
+                    <h2 class="proj-name">
+                        <span>JavisDiT</span>
+                        <span class="proj-tag">Text → Audio-Video Generation</span>
+                    </h2>
+                    <p class="proj-headline">
+                        Joint Audio-Video Diffusion Transformer with Hierarchical Spatio-Temporal Prior Synchronization
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <p>
+                    A foundation multimodal generator that produces synchronized video + sound from text.
+                    It learns hierarchical spatio-temporal priors to align motion, scene dynamics,
+                    and acoustic events in a single diffusion transformer.
+                </p>
+
+                <div class="bullet-line">
+                    <span class="bullet-icon"></span>
+                    <span>End-to-end text-to-audio-visual synthesis</span>
+                </div>
+                <div class="bullet-line">
+                    <span class="bullet-icon"></span>
+                    <span>Explicit spatio-temporal + audio-event synchrony</span>
+                </div>
+                <div class="bullet-line">
+                    <span class="bullet-icon"></span>
+                    <span>The first open-sourced model for JAVG</span>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <a class="btn-link" href="https://arxiv.org/pdf/2503.23377.pdf" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">📄</span><span>Paper</span>
+                </a>
+                <a class="btn-link" href="https://github.com/JavisVerse/JavisDiT-Code" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">💻</span><span>Code</span>
+                </a>
+                <a class="btn-link" href="https://javisverse.github.io/javisdit/" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">🎬</span><span>Demos</span>
+                </a>
+            </div>
+        </a>
+        </article>
+
+
+        <!-- JavisDiT++ Card -->
+        <!-- <article class="card">
+            <div class="card-header">
+                <div class="logo-wrap">
+                    <img src="static/images/logo/JavisDiT++_cropped.png" alt="JavisDiT++ logo" />
+                </div>
+                <div class="title-block">
+                    <h2 class="proj-name">
+                        <span>JavisDiT++</span>
+                        <span class="proj-tag">Quality / Alignment Upgrade</span>
+                    </h2>
+                    <p class="proj-headline">
+                        Improved Quality, Synchrony, and Preference Alignment for Joint Audio-Video Generation
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <p>
+                    An enhanced version of JavisDiT focusing on perceptual quality, tighter audio-video
+                    synchrony, and human preference alignment.
+                    It pushes fidelity, temporal stability, and semantic lip/action sync.
+                </p>
+
+                <div class="bullet-line">
+                    <span class="bullet-icon"></span>
+                    <span>Higher visual fidelity and cleaner acoustics</span>
+                </div>
+                <div class="bullet-line">
+                    <span class="bullet-icon"></span>
+                    <span>Preference alignment for "what humans like"</span>
+                </div>
+                <div class="bullet-line">
+                    <span class="bullet-icon"></span>
+                    <span>Better speech–lip + action–sound timing</span>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <a class="btn-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">📄</span><span>Paper</span>
+                </a>
+                <a class="btn-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">💻</span><span>Code</span>
+                </a>
+                <a class="btn-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">🎧</span><span>Samples</span>
+                </a>
+            </div>
+        </article> -->
+
+
+        <!-- JavisGPT Card -->
+        <article class="card">
+        <a class="card-link" href="https://javisverse.github.io/javisgpt/">
+            <div class="card-header">
+                <div class="logo-wrap">
+                    <img src="static/images/logo/JavisGPT_cropped_trans.png" alt="JavisGPT logo" />
+                </div>
+                <div class="title-block">
+                    <h2 class="proj-name">
+                        <span>JavisGPT</span>
+                        <span class="proj-tag">Unified Audiovisual MLLM</span>
+                    </h2>
+                    <p class="proj-headline">
+                        A Unified LLM for Sounding-Video Comprehension and Generation
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <p>
+                    A multimodal large language model that both <em>understands</em> sounding video
+                    (audio + visual context) and <em>generates</em> new audio-visual experiences.
+                    Moves from "describe this clip" to "create the next scene with sound".
+                </p>
+
+                <div class="bullet-line">
+                    <span class="bullet-icon"></span>
+                    <span>Audio-visual reasoning and dialog</span>
+                </div>
+                <div class="bullet-line">
+                    <span class="bullet-icon"></span>
+                    <span>Conditioned generation (sound + video) as actions</span>
+                </div>
+                <div class="bullet-line">
+                    <span class="bullet-icon"></span>
+                    <span>Towards unified perception ↔ creation systems</span>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <a class="btn-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">📄</span><span>Paper</span>
+                </a>
+                <!-- <a class="btn-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">💻</span><span>Code</span>
+                </a> -->
+                <a class="btn-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">🗣️</span><span>Homepage</span>
+                </a>
+            </div>
+        </a>
+        </article>
+
+    </div>
+</section>
+
+
+<footer class="site-footer">
+    <hr class="footer-line" />
+    <div>JavisVerse · Joint Audio-Video Intelligence Symphony</div>
+    <!-- JavisDiT++ ·  -->
+    <div>JavisDiT · JavisGPT</div>  
+    <div style="margin-top:.5rem; opacity:.6;">
+        © 2025 JavisVerse — All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,9 +1,8 @@
-# JavisDiT
-## Joint Audio-Video Diffusion Transformer with Hierarchical Spatio-Temporal Prior Synchronization
+# JavisVerse: A Universe of Joint Audio-Video Intelligence Symphony
 
-This is the repository that contains the source code for the [JavisDiT project page](https://javisdit.github.io/).
+This is the repository that contains the source code for the [JavisVerse project page](https://javisverse.github.io/), which contains a series of joint audio-video intelligence sub-projects such as [JavisDIT](https://javisverse.github.io/JavisDiT-page/) and [JavisGPT](https://javisverse.github.io/JavisGPT-page/).
 
-If you use JavisDiT in your project, please kindly cite:
+If you use [JavisDiT](https://arxiv.org/pdf/2503.23377.pdf) in your project, please kindly cite:
 ```
 @inproceedings{liu2025javisdit,
       title={JavisDiT: Joint Audio-Video Diffusion Transformer with Hierarchical Spatio-Temporal Prior Synchronization}, 
